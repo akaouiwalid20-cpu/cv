@@ -7,218 +7,296 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --paper-color: #fbf9f4; /* Creamy paper */
+            --ink-color: #3d3d3d;   /* Dark charcoal */
+            --accent-color: #c5b358; /* Gold */
+        }
+
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Lora', serif;
             margin: 0;
-            padding: 0;
-            background-color: #f0efe9; /* Muted background */
-            color: #3d3d3d;
+            padding: 20px;
+            background-color: #e0e0e0;
+            color: var(--ink-color);
+            font-size: 16px;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 900px;
-            margin: 30px auto;
-            background: #fffdfa; /* Creamy paper */
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border: 1px solid #c5b358; /* Subtle gold border */
-            position: relative;
+            max-width: 850px;
+            margin: 20px auto;
+            background: var(--paper-color);
+            border: 1px solid var(--accent-color);
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
         }
-        .header-content {
-            text-align: center;
-            padding: 40px 20px;
+        
+        .page-border {
+            border: 3px double var(--accent-color);
+            padding: 30px;
         }
-        .profile-image-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .profile-image-container img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #c5b358; /* Gold border */
-        }
-        h1, h2 {
-            font-family: 'Cormorant Garamond', serif;
-            text-align: center;
-            margin: 0;
-            font-weight: 700;
-        }
-        h1 {
-            font-size: 3em;
-            color: #333;
-        }
-        h2 {
-            font-size: 1.5em;
-            color: #555;
-            font-weight: 400;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-        .contact-info {
+        
+        .header {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 0.9em;
+            position: relative;
+        }
+
+        .monogram {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: var(--paper-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            border: 3px solid #b3a04f;
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 700;
+            color: var(--ink-color);
+        }
+
+        .header h2 {
+            font-family: 'Lora', serif;
+            font-size: 1.5em;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--accent-color);
+            margin: 5px 0 20px 0;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            border-top: 1px solid #e0d9c0;
+            border-bottom: 1px solid #e0d9c0;
+            padding: 15px 0;
         }
         .contact-info span {
-            margin: 0 10px;
-            color: #555;
-        }
-        .contact-info i {
-            color: #c5b358; /* Gold icons */
-            margin-right: 8px;
+            margin: 0 15px;
         }
         .contact-info a {
-            color: #555;
+            color: var(--ink-color);
             text-decoration: none;
         }
         .contact-info a:hover {
-            color: #000;
+            color: var(--accent-color);
+        }
+        .contact-info i {
+            color: var(--accent-color);
+            margin-right: 8px;
         }
 
-        .main-content {
-            padding: 20px 40px 40px;
+        .section {
+            margin-bottom: 35px;
         }
+
         h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8em;
-            color: #333;
-            border-bottom: 2px solid #c5b358; /* Gold underline */
-            padding-bottom: 8px;
-            margin-bottom: 20px;
+            color: var(--ink-color);
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
-        .section {
-            margin-bottom: 30px;
+
+        /* Ornate Separator */
+        h3::before, h3::after {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 1px;
+            background-color: var(--accent-color);
+            vertical-align: middle;
+            margin: 0 15px;
         }
+
         ul {
             padding-left: 20px;
             list-style: none;
         }
         ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
         }
         ul li::before {
-            content: '•';
+            content: '⚜';
             position: absolute;
             left: 0;
-            color: #c5b358; /* Gold bullet point */
-            font-size: 1.2em;
+            color: var(--accent-color);
+            font-size: 1em;
         }
 
         .experience-item, .education-item {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        .experience-item h4, .education-item h4 {
-            font-family: 'Lato', sans-serif;
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+        .item-header h4 {
+            font-family: 'Lora', serif;
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1.15em;
             margin: 0;
+        }
+        .date {
+            font-style: italic;
+            color: #555;
+            white-space: nowrap;
+            font-size: 0.9em;
         }
         .item-sub-heading {
              font-style: italic;
              color: #777;
-             margin: 2px 0 5px;
+             margin: 0 0 10px 0;
         }
-        .date {
-             float: right;
-             font-style: italic;
-             color: #777;
+        .experience-item ul {
+            padding-left: 15px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+        }
+
+        .skills-grid h4 {
+             font-family: 'Cormorant Garamond', serif;
+             font-weight: 700;
+             font-size: 1.2em;
+             margin-bottom: 10px;
         }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header-content">
-            <div class="profile-image-container">
-                 <img src="https://placehold.co/150x150" alt="Photo de profil de Walid Akaoui">
-            </div>
-            <h1>AKAOUI WALID</h1>
-            <h2>Technicien en Gestion des Entreprises - Option Commerce et Marketing</h2>
-            <div class="contact-info">
-                <span><a href="tel:+212774004524"><i class="fas fa-phone"></i>+212 774004524</a></span>
-                <span><a href="mailto:akaouiwalid20@gmail.com"><i class="fas fa-envelope"></i>akaouiwalid20@gmail.com</a></span>
-                <span><i class="fas fa-map-marker-alt"></i>Maroc</span>
-            </div>
-             <p>Professionnel dynamique avec de fortes compétences en communication et une expertise en gestion commerciale.</p>
-        </div>
+        <div class="page-border">
+            <header class="header">
+                <div class="monogram">WA</div>
+                <h1>AKAOUI WALID</h1>
+                <h2>Technicien en Gestion des Entreprises - Option Commerce et Marketing</h2>
+                <div class="contact-info">
+                    <span><a href="tel:+212774004524"><i class="fas fa-phone"></i>+212 774004524</a></span>
+                    <span><a href="mailto:akaouiwalid20@gmail.com"><i class="fas fa-envelope"></i>akaouiwalid20@gmail.com</a></span>
+                    <span><i class="fas fa-map-marker-alt"></i>Maroc</span>
+                </div>
+            </header>
 
-        <div class="main-content">
+            <main class="main-content">
+                <div class="section">
+                    <h3>Profil</h3>
+                    <p style="text-align: center;">
+                        Professionnel dynamique avec de fortes compétences en communication et une expertise en gestion commerciale.
+                    </p>
+                </div>
 
-            <div class="section">
-                <h3>Expériences Professionnelles</h3>
-                <div class="experience-item">
-                    <span class="date">2025</span>
-                    <h4>Stage dans une compagnie d'assurance</h4>
-                    <p class="item-sub-heading">Sanlam, Agadir</p>
-                    <ul>
-                        <li>Répondre aux appels téléphoniques</li>
-                        <li>Recevoir les clients</li>
-                        <li>Fournir des informations de base sur les produits</li>
+                <div class="section">
+                    <h3>Expériences Professionnelles</h3>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <h4>Stage dans une compagnie d'assurance</h4>
+                            <span class="date">2025</span>
+                        </div>
+                        <p class="item-sub-heading">Sanlam, Agadir</p>
+                                                    <ul>
+                                                        <li>Répondre aux appels téléphoniques</li>
+                                                        <li>Recevoir les clients et fournir des informations de base sur les produits</li>
+                                                    </ul>                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <h4>Stage dans une entreprise automobile</h4>
+                            <span class="date">2024</span>
+                        </div>
+                        <p class="item-sub-heading">Dacia & Renault, Errachidia</p>
+                                                    <ul>
+                                                        <li>Prospection active pour identifier de nouveaux clients sur le marché</li>
+                                                        <li>Analyse des besoins clients et proposition de solutions adaptées</li>
+                                                        <li>Gestion des réclamations clients et suivi de la satisfaction</li>
+                                                    </ul>                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Formation</h3>
+                    <div class="education-item">
+                         <div class="item-header">
+                            <h4>Diplôme en Gestion des Entreprises-Option Commerce et Marketing</h4>
+                            <span class="date">2022 - 2025</span>
+                        </div>
+                        <p class="item-sub-heading">Institut Spécialisé en Technologie Appliquée (ISTA), Erfoud</p>
+                    </div>
+                    <div class="education-item">
+                        <div class="item-header">
+                            <h4>Baccalauréat en Sciences de Gestion Comptable</h4>
+                             <span class="date">2020 - 2021</span>
+                        </div>
+                        <p class="item-sub-heading">Lycée Manarat Tafilalt, Errachidia</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Compétences</h3>
+                    <div class="skills-grid">
+                        <div>
+                             <h4>Techniques</h4>
+                             <ul>
+                                <li>Gestion commerciale et administrative</li>
+                                <li>Analyse et suivi des ventes</li>
+                                <li>Techniques de prospection & négociation</li>
+                                <li>Gestion des stocks et approvisionnement</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Transversales</h4>
+                            <ul>
+                                <li>Communication et relation client</li>
+                                <li>Esprit d'analyse et résolution de problèmes</li>
+                                <li>Travail en équipe et collaboration</li>
+                                <li>Adaptabilité et autonomie</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="section">
+                    <h3>Langues</h3>
+                     <div class="skills-grid">
+                        <div>
+                             <h4>Langues</h4>
+                             <ul>
+                                <li><strong>Arabe:</strong> Langue maternelle</li>
+                                <li><strong>Français:</strong> Courant</li>
+                                <li><strong>Anglais:</strong> Intermédiaire</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Activités Parascolaires</h3>
+                     <ul>
+                        <li>Acteur dans un film international-Arfoud</li>
                     </ul>
                 </div>
-                <div class="experience-item">
-                    <span class="date">2024</span>
-                    <h4>Stage dans une entreprise automobile</h4>
-                    <p class="item-sub-heading">Dacia & Renault, Errachidia</p>
-                    <ul>
-                        <li>Prospection active pour identifier de nouveaux clients sur le marché</li>
-                        <li>Analyse des besoins clients et proposition de solutions adaptées</li>
-                        <li>Gestion des réclamations clients et suivi de la satisfaction</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Formation Académique</h3>
-                <div class="education-item">
-                    <span class="date">2022-2025</span>
-                    <h4>Diplôme en Gestion des Entreprises-Option Commerce et Marketing</h4>
-                    <p class="item-sub-heading">Institut Spécialisé en Technologie Appliquée (ISTA), Erfoud</p>
-                </div>
-                <div class="education-item">
-                    <span class="date">2020-2021</span>
-                    <h4>Baccalauréat en Sciences de Gestion Comptable</h4>
-                    <p class="item-sub-heading">Lycée Manarat Tafilalt, Errachidia</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Compétences</h3>
-                 <h4>Techniques</h4>
-                 <ul>
-                    <li>Gestion commerciale et administrative</li>
-                    <li>Analyse et suivi des ventes</li>
-                    <li>Techniques de prospection et de négociation</li>
-                    <li>Gestion des stocks et approvisionnement</li>
-                </ul>
-                <br>
-                <h4>Transversales</h4>
-                <ul>
-                    <li>Communication et relation client</li>
-                    <li>Esprit d'analyse et résolution de problèmes</li>
-                    <li>Travail en équipe et collaboration</li>
-                    <li>Adaptabilité et autonomie</li>
-                </ul>
-            </div>
-
-             <div class="section">
-                <h3>Langues</h3>
-                 <ul>
-                    <li>Arabe: langue maternelle</li>
-                    <li>Francais: Courant</li>
-                    <li>Anglais: Intermédiaire</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h3>Activités Parascolaires</h3>
-                 <ul>
-                    <li>Acteur dans un film international-Arfoud</li>
-                </ul>
-            </div>
+            </main>
         </div>
     </div>
 </body>
